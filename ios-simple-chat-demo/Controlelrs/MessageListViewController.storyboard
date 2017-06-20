@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dub-xA-hoT">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageListTableViewCell" rowHeight="66" id="g0A-S8-hf2" customClass="MessageListTableViewCell" customModule="ios_simple_chat_demo" customModuleProvider="target">
@@ -33,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I7-8X-cbT">
-                                                    <rect key="frame" x="8" y="44" width="359" height="13.5"/>
+                                                    <rect key="frame" x="8" y="44" width="359" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,16 +63,54 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCb-mY-7fz">
+                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REC-j7-a83">
+                                        <rect key="frame" x="323" y="18" width="44" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="fYW-M8-icH"/>
+                                            <constraint firstAttribute="height" constant="30" id="n7I-jY-cHd"/>
+                                        </constraints>
+                                        <state key="normal" title="送信"/>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Yq-0e-uMq">
+                                        <rect key="frame" x="8" y="8" width="307" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1IU-th-24D"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0Yq-0e-uMq" firstAttribute="top" secondItem="uCb-mY-7fz" secondAttribute="top" constant="8" id="7Xr-CH-Vxr"/>
+                                    <constraint firstAttribute="trailing" secondItem="REC-j7-a83" secondAttribute="trailing" constant="8" id="Pfe-kP-ptF"/>
+                                    <constraint firstItem="REC-j7-a83" firstAttribute="leading" secondItem="0Yq-0e-uMq" secondAttribute="trailing" constant="8" id="WmH-ge-yCb"/>
+                                    <constraint firstItem="0Yq-0e-uMq" firstAttribute="leading" secondItem="uCb-mY-7fz" secondAttribute="leading" constant="8" id="bjd-yI-ByN"/>
+                                    <constraint firstItem="REC-j7-a83" firstAttribute="leading" secondItem="0Yq-0e-uMq" secondAttribute="trailing" constant="8" id="cp0-JS-TNV"/>
+                                    <constraint firstItem="REC-j7-a83" firstAttribute="top" secondItem="uCb-mY-7fz" secondAttribute="top" constant="18" id="edl-q7-tDX"/>
+                                    <constraint firstItem="0Yq-0e-uMq" firstAttribute="centerY" secondItem="REC-j7-a83" secondAttribute="centerY" id="f3p-6j-d3U"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Yq-0e-uMq" secondAttribute="bottom" constant="8" id="wAS-I4-OWf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dub-xA-hoT" firstAttribute="leading" secondItem="LUy-8r-rMO" secondAttribute="leading" id="4ga-Kj-Yqj"/>
-                            <constraint firstItem="epb-l2-xOd" firstAttribute="top" secondItem="dub-xA-hoT" secondAttribute="bottom" id="5ka-7O-aSi"/>
-                            <constraint firstAttribute="trailing" secondItem="dub-xA-hoT" secondAttribute="trailing" id="73e-gv-NvY"/>
-                            <constraint firstItem="dub-xA-hoT" firstAttribute="top" secondItem="lkN-pW-My9" secondAttribute="bottom" constant="8" id="Acc-bX-M6m"/>
+                            <constraint firstItem="uCb-mY-7fz" firstAttribute="top" secondItem="dub-xA-hoT" secondAttribute="bottom" id="7j3-xE-c0W"/>
+                            <constraint firstItem="dub-xA-hoT" firstAttribute="leading" secondItem="uCb-mY-7fz" secondAttribute="leading" id="L94-MM-l8g"/>
+                            <constraint firstAttribute="trailing" secondItem="dub-xA-hoT" secondAttribute="trailing" id="XhI-p9-zf3"/>
+                            <constraint firstItem="epb-l2-xOd" firstAttribute="top" secondItem="uCb-mY-7fz" secondAttribute="bottom" id="fZL-dK-ZrE"/>
+                            <constraint firstItem="dub-xA-hoT" firstAttribute="trailing" secondItem="uCb-mY-7fz" secondAttribute="trailing" id="fj6-hp-f8E"/>
+                            <constraint firstItem="dub-xA-hoT" firstAttribute="top" secondItem="lkN-pW-My9" secondAttribute="bottom" constant="8" id="nhS-JR-269"/>
+                            <constraint firstItem="dub-xA-hoT" firstAttribute="leading" secondItem="LUy-8r-rMO" secondAttribute="leading" id="szg-aD-YvC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="constraintTextViewHeight" destination="1IU-th-24D" id="nf7-hM-ket"/>
+                        <outlet property="inputTextView" destination="0Yq-0e-uMq" id="gKN-NB-IkR"/>
                         <outlet property="messageTableView" destination="dub-xA-hoT" id="nLW-eY-tmQ"/>
                     </connections>
                 </viewController>
