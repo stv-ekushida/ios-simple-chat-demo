@@ -17,6 +17,9 @@
 		79E8A7AB1EF8ABDD00FABA3A /* MessageDaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7AA1EF8ABDD00FABA3A /* MessageDaoTests.swift */; };
 		79E8A7AE1EF8B1B100FABA3A /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7AD1EF8B1B100FABA3A /* MessageListViewController.swift */; };
 		79E8A7B01EF8B1EC00FABA3A /* MessageListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E8A7AF1EF8B1EC00FABA3A /* MessageListViewController.storyboard */; };
+		79E8A7B21EF8B28300FABA3A /* MessageListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7B11EF8B28300FABA3A /* MessageListProvider.swift */; };
+		79E8A7B51EF8B33E00FABA3A /* MessageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7B41EF8B33E00FABA3A /* MessageListTableViewCell.swift */; };
+		79E8A7B81EF8B67300FABA3A /* MessageListTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7B71EF8B67300FABA3A /* MessageListTableViewCellTests.swift */; };
 		E86772E98299E4FBB11702CE /* Pods_ios_simple_chat_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC8FEEBA0B9F7AE8B169A6A /* Pods_ios_simple_chat_demoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		79E8A7AA1EF8ABDD00FABA3A /* MessageDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDaoTests.swift; sourceTree = "<group>"; };
 		79E8A7AD1EF8B1B100FABA3A /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		79E8A7AF1EF8B1EC00FABA3A /* MessageListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageListViewController.storyboard; sourceTree = "<group>"; };
+		79E8A7B11EF8B28300FABA3A /* MessageListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListProvider.swift; sourceTree = "<group>"; };
+		79E8A7B41EF8B33E00FABA3A /* MessageListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListTableViewCell.swift; sourceTree = "<group>"; };
+		79E8A7B71EF8B67300FABA3A /* MessageListTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListTableViewCellTests.swift; sourceTree = "<group>"; };
 		95A3549CE2B90FB19AD51F4A /* Pods-ios-simple-chat-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demo/Pods-ios-simple-chat-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E16EB6B477B1F7036C246387 /* Pods-ios-simple-chat-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demoTests/Pods-ios-simple-chat-demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECC8FEEBA0B9F7AE8B169A6A /* Pods_ios_simple_chat_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_chat_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +110,7 @@
 		790D93D01EF8A43B00ACBB67 /* ios-simple-chat-demo */ = {
 			isa = PBXGroup;
 			children = (
+				79E8A7B31EF8B33500FABA3A /* Views */,
 				79E8A7AC1EF8B19A00FABA3A /* Controlelrs */,
 				790D93F11EF8A67600ACBB67 /* Models */,
 				790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */,
@@ -117,6 +124,7 @@
 		790D93E51EF8A43B00ACBB67 /* ios-simple-chat-demoTests */ = {
 			isa = PBXGroup;
 			children = (
+				79E8A7B61EF8B66700FABA3A /* Views */,
 				79E8A7A91EF8ABC700FABA3A /* Models */,
 				790D93E81EF8A43B00ACBB67 /* Info.plist */,
 			);
@@ -146,9 +154,25 @@
 			children = (
 				79E8A7AF1EF8B1EC00FABA3A /* MessageListViewController.storyboard */,
 				79E8A7AD1EF8B1B100FABA3A /* MessageListViewController.swift */,
+				79E8A7B11EF8B28300FABA3A /* MessageListProvider.swift */,
 			);
-			name = Controlelrs;
 			path = Controlelrs;
+			sourceTree = "<group>";
+		};
+		79E8A7B31EF8B33500FABA3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79E8A7B41EF8B33E00FABA3A /* MessageListTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		79E8A7B61EF8B66700FABA3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79E8A7B71EF8B67300FABA3A /* MessageListTableViewCellTests.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		7AF6015BB89B7E04A13DEABA /* Pods */ = {
@@ -367,9 +391,11 @@
 			files = (
 				79E8A7AE1EF8B1B100FABA3A /* MessageListViewController.swift in Sources */,
 				790D93F51EF8A71000ACBB67 /* Message.swift in Sources */,
+				79E8A7B21EF8B28300FABA3A /* MessageListProvider.swift in Sources */,
 				790D93D21EF8A43B00ACBB67 /* AppDelegate.swift in Sources */,
 				79E8A7A81EF8A87E00FABA3A /* MessageDao.swift in Sources */,
 				790D93F31EF8A68A00ACBB67 /* RealmDaoHelper.swift in Sources */,
+				79E8A7B51EF8B33E00FABA3A /* MessageListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E8A7AB1EF8ABDD00FABA3A /* MessageDaoTests.swift in Sources */,
+				79E8A7B81EF8B67300FABA3A /* MessageListTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

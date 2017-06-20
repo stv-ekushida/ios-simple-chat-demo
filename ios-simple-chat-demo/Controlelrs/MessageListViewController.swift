@@ -10,6 +10,8 @@ import UIKit
 
 final class MessageListViewController: UIViewController {
 
+    @IBOutlet weak var messageTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
