@@ -114,12 +114,10 @@
 			children = (
 				79E8A7AC1EF8B19A00FABA3A /* Controlelrs */,
 				79E8A7E51EF8C30200FABA3A /* Extensions */,
-				790D93F11EF8A67600ACBB67 /* Models */,
-				79E8A7B31EF8B33500FABA3A /* Views */,
-				790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */,
-				790D93D81EF8A43B00ACBB67 /* Assets.xcassets */,
 				790D93DD1EF8A43B00ACBB67 /* Info.plist */,
-				790D93DA1EF8A43B00ACBB67 /* LaunchScreen.storyboard */,
+				790D93F11EF8A67600ACBB67 /* Models */,
+				79E8A7EA1EF90F4200FABA3A /* Others */,
+				79E8A7B31EF8B33500FABA3A /* Views */,
 			);
 			path = "ios-simple-chat-demo";
 			sourceTree = "<group>";
@@ -167,7 +165,6 @@
 			children = (
 				79E8A7B41EF8B33E00FABA3A /* MessageListTableViewCell.swift */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -176,7 +173,6 @@
 			children = (
 				79E8A7B71EF8B67300FABA3A /* MessageListTableViewCellTests.swift */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -185,8 +181,17 @@
 			children = (
 				79E8A7E81EF8E80500FABA3A /* String+DateFormat.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		79E8A7EA1EF90F4200FABA3A /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */,
+				790D93D81EF8A43B00ACBB67 /* Assets.xcassets */,
+				790D93DA1EF8A43B00ACBB67 /* LaunchScreen.storyboard */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		7AF6015BB89B7E04A13DEABA /* Pods */ = {
