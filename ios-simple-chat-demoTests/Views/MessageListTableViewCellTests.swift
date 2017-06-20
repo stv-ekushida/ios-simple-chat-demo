@@ -49,10 +49,9 @@ class MessageListTableViewCellTests: XCTestCase {
         message.postDate = string2Date(dateString: "2015/10/10 10:10:10")
         cell.item = message
 
-        XCTAssertEqual(cell.messageLabel.text, "あいうえおかきくけこ")
+        XCTAssertEqual(cell.messageTextView.text, "あいうえおかきくけこ")
         XCTAssertEqual(cell.dateLabel.text, "10:10")
     }
-
 
     //MARK : - Helper
     private func string2Date(dateString: String) -> Date{
@@ -61,14 +60,6 @@ class MessageListTableViewCellTests: XCTestCase {
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return formatter.date(from: dateString)!
-    }
-
-    private func date2hhmmString(date: Date) -> String {
-
-        let dateFormater = DateFormatter()
-        dateFormater.locale = Locale(identifier: "ja_JP")
-        dateFormater.dateFormat = "HH:mm"
-        return dateFormater.string(from: date)
     }
 }
 

@@ -22,6 +22,7 @@ final class MessageDao {
         let message = Message()
         message.messageID = MessageDao.dao.newId()!
         message.message = model.message
+        message.postDate = model.postDate
         MessageDao.dao.add(d: message)
     }
 

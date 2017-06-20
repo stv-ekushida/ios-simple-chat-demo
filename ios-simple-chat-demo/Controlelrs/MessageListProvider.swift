@@ -22,7 +22,9 @@ final class MessageListProvider: NSObject {
 
     /// メッセージの一覧を設定する
     ///
-    /// - Parameter messages: メッセージ一覧
+    /// - Parameters:
+    ///   - index: メッセージグループのインデックス
+    ///   - messages: メッセージ一覧
     func setMessages(index: Int, messages: [Message]) {
 
         if self.messages.count - 1  < index {
