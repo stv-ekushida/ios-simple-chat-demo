@@ -40,7 +40,7 @@ final class MessageListViewController: UIViewController {
         removeKeyboardShowHideEvent()
     }
 
-    //MARK:-Actions
+    //MARK:- Actions
     @IBAction func didTapSendButton(_ sender: UIButton) {
 
         let message = Message()
@@ -50,7 +50,7 @@ final class MessageListViewController: UIViewController {
         reloadMessages()
         setupTextView()
     }
-    
+
     private func setup() {
 
         messageTableView.estimatedRowHeight = 88
@@ -74,11 +74,36 @@ final class MessageListViewController: UIViewController {
             dataSource.setMessages(index: i, messages: messages)
         }
         messageTableView.reloadData()
+        scrollToNewMessage()
+    }
 
-        DispatchQueue.main.async {
-            self.messageTableView.scrollToBottom(animated: false)
+    /// 最新のメッセージまで移動する
+    func scrollToNewMessage() {
+
+        DispatchQueue.main.async { [weak self] _ in
+
+            guard let section = self?.messageTableView.numberOfSections  else {
+                return
+            }
+
+            if section <= 0 {
+                return
+            }
+
+            guard let row = self?.messageTableView
+                .numberOfRows(inSection: section - 1) else {
+                return
+            }
+
+            let indexPath = IndexPath(row: row - 1 , section: section - 1)
+
+            self?.messageTableView.scrollToRow(at: indexPath,
+                                              at: .bottom,
+                                              animated: false)
         }
     }
+
+    //MARK: - Keyboard
 
     /// キーボードが表示されたときの処理
     ///
@@ -120,6 +145,7 @@ final class MessageListViewController: UIViewController {
     private func setupTextView() {
 
         inputTextView.text = ""
+        sendButton.isEnabled = false
         let size = inputTextView.sizeThatFits(inputTextView.frame.size)
         constraintTextViewHeight.constant = size.height
         inputTextView.resignFirstResponder()
