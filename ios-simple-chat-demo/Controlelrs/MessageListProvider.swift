@@ -23,8 +23,13 @@ final class MessageListProvider: NSObject {
     /// メッセージの一覧を設定する
     ///
     /// - Parameter messages: メッセージ一覧
-    func setMessages(messages: [Message]) {
-        self.messages.append(messages)
+    func setMessages(index: Int, messages: [Message]) {
+
+        if self.messages.count - 1  < index {
+            self.messages.append(messages)
+        } else {
+            self.messages[index] = messages
+        }
     }
 
     /// 該当のメッセージを取得する
@@ -32,22 +37,7 @@ final class MessageListProvider: NSObject {
     /// - Parameter index: TableViewのインデックス
     /// - Returns: メッセージ
     func message(section: Int, index: Int) -> Message {
-
-        guard section < messageGroups.count else {
-            fatalError("sectionsの要素数を超えました。")
-        }
-
-        guard index < messages[section].count else {
-            fatalError("messagesの要素数を超えました。")
-        }
         return messages[section][index]
-    }
-
-    /// メッセージの数を取得する
-    ///
-    /// - Returns: メッセージ数
-    func count(section: Int) -> Int {
-        return messages[section].count
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 final class MessageListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
 
     static var identifier: String {
@@ -22,7 +22,9 @@ final class MessageListTableViewCell: UITableViewCell {
 
         didSet {
 
-            messageLabel.text = item?.message
+            messageTextView.text = item?.message
+            messageTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10)
+            messageTextView.sizeToFit()
 
             if let date = item?.postDate {
                 dateLabel.text = dateStyle(date: date)

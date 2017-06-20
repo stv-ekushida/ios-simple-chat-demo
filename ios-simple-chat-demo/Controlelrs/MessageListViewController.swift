@@ -17,9 +17,10 @@ final class MessageListViewController: UIViewController {
 
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var constraintTextViewHeight: NSLayoutConstraint!
 
-    let dataSource = MessageListProvider()
+    private let dataSource = MessageListProvider()
     private var isObserving = false
 
     //MARK:- LifeCycle
@@ -39,9 +40,25 @@ final class MessageListViewController: UIViewController {
         removeKeyboardShowHideEvent()
     }
 
+    //MARK:-Actions
+    @IBAction func didTapSendButton(_ sender: UIButton) {
+
+        let message = Message()
+        message.message = inputTextView.text
+        MessageDao.add(model: message)
+
+        reloadMessageList()
+        setupTextView()
+    }
+    
     private func setup() {
+
+        messageTableView.estimatedRowHeight = 66
+        messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.dataSource = dataSource
+
         inputTextView.delegate = self
+        sendButton.isEnabled = false
     }
 
     /// メッセージ一覧の表示
@@ -50,10 +67,10 @@ final class MessageListViewController: UIViewController {
         let groups = MessageDao.groupByPostDate()
         dataSource.setMessageGroup(groups: groups)
 
-        for gropu in groups {
+        for (i,group) in groups.enumerated() {
 
-            let messages = MessageDao.findByPostDate(date: gropu)
-            dataSource.setMessages(messages: messages)
+            let messages = MessageDao.findByPostDate(date: group)
+            dataSource.setMessages(index: i, messages: messages)
         }
         messageTableView.reloadData()
         messageTableView.scrollToBottom()
@@ -65,16 +82,17 @@ final class MessageListViewController: UIViewController {
     func keyboardWillShow(notification: Notification) {
 
         let rect = (notification
-            .userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            .userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?
+            .cgRectValue
 
         let duration = notification
             .userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
 
         UIView.animate(withDuration: duration!,
                        animations: { [weak self] () in
-                        let transform = CGAffineTransform(translationX: 0,
-                                                          y: -(rect?.size.height)!)
-                        self?.view.transform = transform
+            let transform = CGAffineTransform(translationX: 0,
+                                              y: -(rect?.size.height)!)
+            self?.view.transform = transform
 
         })
     }
@@ -96,10 +114,10 @@ final class MessageListViewController: UIViewController {
 
     /// 送信ボタンが押下されたあとに、キーボードを初期状態に戻す処理
     private func setupTextView() {
+
         inputTextView.text = ""
         let size = inputTextView.sizeThatFits(inputTextView.frame.size)
         constraintTextViewHeight.constant = size.height
-
         inputTextView.resignFirstResponder()
     }
 
@@ -147,6 +165,8 @@ extension MessageListViewController: UITextViewDelegate {
 
         /// 高さの上限
         let maxHeight = CGFloat(100.0)
+
+        sendButton.isEnabled = textView.text.characters.count > 0
 
         if inputTextView.frame.size.height < maxHeight {
 
