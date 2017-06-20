@@ -1,0 +1,20 @@
+PODS:
+  - Realm (2.8.0):
+    - Realm/Headers (= 2.8.0)
+  - Realm/Headers (2.8.0)
+  - RealmSwift (2.8.0):
+    - Realm (= 2.8.0)
+  - STV-Extensions (0.1.9)
+
+DEPENDENCIES:
+  - RealmSwift (<= 2.8.0)
+  - STV-Extensions
+
+SPEC CHECKSUMS:
+  Realm: 929243ad2b618b3232e70658bedc61110e7563f1
+  RealmSwift: 5b7079b891f2833d1849294161ba3e092bbda3f6
+  STV-Extensions: 48b4788afd374c6940a20f9eea6b1b9ebd40fe1c
+
+PODFILE CHECKSUM: 3ba29ac2bf3e013df33c366a7d52da1bb9c226ff
+
+COCOAPODS: 1.2.1

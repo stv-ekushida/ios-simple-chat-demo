@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60B96B1D683708C494A35E55 /* Pods_ios_simple_chat_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32D4B3853D1497EA62C9280 /* Pods_ios_simple_chat_demo.framework */; };
 		790D93D21EF8A43B00ACBB67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */; };
 		790D93D41EF8A43B00ACBB67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93D31EF8A43B00ACBB67 /* ViewController.swift */; };
 		790D93D71EF8A43B00ACBB67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790D93D51EF8A43B00ACBB67 /* Main.storyboard */; };
 		790D93D91EF8A43B00ACBB67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790D93D81EF8A43B00ACBB67 /* Assets.xcassets */; };
 		790D93DC1EF8A43B00ACBB67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790D93DA1EF8A43B00ACBB67 /* LaunchScreen.storyboard */; };
 		790D93E71EF8A43B00ACBB67 /* ios_simple_chat_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93E61EF8A43B00ACBB67 /* ios_simple_chat_demoTests.swift */; };
+		790D93F31EF8A68A00ACBB67 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */; };
+		E86772E98299E4FBB11702CE /* Pods_ios_simple_chat_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC8FEEBA0B9F7AE8B169A6A /* Pods_ios_simple_chat_demoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0571CE2CB3B4C59663BD4B8A /* Pods-ios-simple-chat-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demo/Pods-ios-simple-chat-demo.release.xcconfig"; sourceTree = "<group>"; };
+		0CDE692E506B033B446713BD /* Pods-ios-simple-chat-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demoTests/Pods-ios-simple-chat-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		790D93CE1EF8A43B00ACBB67 /* ios-simple-chat-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-simple-chat-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		790D93D31EF8A43B00ACBB67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +41,11 @@
 		790D93E21EF8A43B00ACBB67 /* ios-simple-chat-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-simple-chat-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		790D93E61EF8A43B00ACBB67 /* ios_simple_chat_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_simple_chat_demoTests.swift; sourceTree = "<group>"; };
 		790D93E81EF8A43B00ACBB67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
+		95A3549CE2B90FB19AD51F4A /* Pods-ios-simple-chat-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demo/Pods-ios-simple-chat-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		E16EB6B477B1F7036C246387 /* Pods-ios-simple-chat-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-chat-demoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-chat-demoTests/Pods-ios-simple-chat-demoTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECC8FEEBA0B9F7AE8B169A6A /* Pods_ios_simple_chat_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_chat_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32D4B3853D1497EA62C9280 /* Pods_ios_simple_chat_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_chat_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B96B1D683708C494A35E55 /* Pods_ios_simple_chat_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86772E98299E4FBB11702CE /* Pods_ios_simple_chat_demoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		258796A88804A001C985DAD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F32D4B3853D1497EA62C9280 /* Pods_ios_simple_chat_demo.framework */,
+				ECC8FEEBA0B9F7AE8B169A6A /* Pods_ios_simple_chat_demoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		790D93C51EF8A43B00ACBB67 = {
 			isa = PBXGroup;
 			children = (
 				790D93D01EF8A43B00ACBB67 /* ios-simple-chat-demo */,
 				790D93E51EF8A43B00ACBB67 /* ios-simple-chat-demoTests */,
 				790D93CF1EF8A43B00ACBB67 /* Products */,
+				7AF6015BB89B7E04A13DEABA /* Pods */,
+				258796A88804A001C985DAD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +100,7 @@
 		790D93D01EF8A43B00ACBB67 /* ios-simple-chat-demo */ = {
 			isa = PBXGroup;
 			children = (
+				790D93F11EF8A67600ACBB67 /* Models */,
 				790D93D11EF8A43B00ACBB67 /* AppDelegate.swift */,
 				790D93D31EF8A43B00ACBB67 /* ViewController.swift */,
 				790D93D51EF8A43B00ACBB67 /* Main.storyboard */,
@@ -96,6 +120,25 @@
 			path = "ios-simple-chat-demoTests";
 			sourceTree = "<group>";
 		};
+		790D93F11EF8A67600ACBB67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7AF6015BB89B7E04A13DEABA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95A3549CE2B90FB19AD51F4A /* Pods-ios-simple-chat-demo.debug.xcconfig */,
+				0571CE2CB3B4C59663BD4B8A /* Pods-ios-simple-chat-demo.release.xcconfig */,
+				0CDE692E506B033B446713BD /* Pods-ios-simple-chat-demoTests.debug.xcconfig */,
+				E16EB6B477B1F7036C246387 /* Pods-ios-simple-chat-demoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 790D93EB1EF8A43B00ACBB67 /* Build configuration list for PBXNativeTarget "ios-simple-chat-demo" */;
 			buildPhases = (
+				D729C0B89AA5B9A64718024E /* [CP] Check Pods Manifest.lock */,
 				790D93CA1EF8A43B00ACBB67 /* Sources */,
 				790D93CB1EF8A43B00ACBB67 /* Frameworks */,
 				790D93CC1EF8A43B00ACBB67 /* Resources */,
+				1DA0C6AE5DBFFDD14C363D22 /* [CP] Embed Pods Frameworks */,
+				A868FD73CE36E0D645399760 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 790D93EE1EF8A43B00ACBB67 /* Build configuration list for PBXNativeTarget "ios-simple-chat-demoTests" */;
 			buildPhases = (
+				E5B3A277C63164E203D452A9 /* [CP] Check Pods Manifest.lock */,
 				790D93DE1EF8A43B00ACBB67 /* Sources */,
 				790D93DF1EF8A43B00ACBB67 /* Frameworks */,
 				790D93E01EF8A43B00ACBB67 /* Resources */,
+				29F6CE120A6B6128F22A43C0 /* [CP] Embed Pods Frameworks */,
+				C3659960F48B6E921E6BFB89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +195,7 @@
 				TargetAttributes = {
 					790D93CD1EF8A43B00ACBB67 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = PCCZJUYRT6;
 						ProvisioningStyle = Automatic;
 					};
 					790D93E11EF8A43B00ACBB67 = {
@@ -194,6 +244,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DA0C6AE5DBFFDD14C363D22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-simple-chat-demo/Pods-ios-simple-chat-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29F6CE120A6B6128F22A43C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-simple-chat-demoTests/Pods-ios-simple-chat-demoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A868FD73CE36E0D645399760 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-simple-chat-demo/Pods-ios-simple-chat-demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3659960F48B6E921E6BFB89 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-simple-chat-demoTests/Pods-ios-simple-chat-demoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D729C0B89AA5B9A64718024E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5B3A277C63164E203D452A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		790D93CA1EF8A43B00ACBB67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -201,6 +344,7 @@
 			files = (
 				790D93D41EF8A43B00ACBB67 /* ViewController.swift in Sources */,
 				790D93D21EF8A43B00ACBB67 /* AppDelegate.swift in Sources */,
+				790D93F31EF8A68A00ACBB67 /* RealmDaoHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,8 +481,10 @@
 		};
 		790D93EC1EF8A43B00ACBB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95A3549CE2B90FB19AD51F4A /* Pods-ios-simple-chat-demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PCCZJUYRT6;
 				INFOPLIST_FILE = "ios-simple-chat-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.st-ventures.ios-simple-chat-demo";
@@ -349,8 +495,10 @@
 		};
 		790D93ED1EF8A43B00ACBB67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0571CE2CB3B4C59663BD4B8A /* Pods-ios-simple-chat-demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PCCZJUYRT6;
 				INFOPLIST_FILE = "ios-simple-chat-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.st-ventures.ios-simple-chat-demo";
@@ -361,6 +509,7 @@
 		};
 		790D93EF1EF8A43B00ACBB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CDE692E506B033B446713BD /* Pods-ios-simple-chat-demoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -375,6 +524,7 @@
 		};
 		790D93F01EF8A43B00ACBB67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E16EB6B477B1F7036C246387 /* Pods-ios-simple-chat-demoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -406,6 +556,7 @@
 				790D93ED1EF8A43B00ACBB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		790D93EE1EF8A43B00ACBB67 /* Build configuration list for PBXNativeTarget "ios-simple-chat-demoTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +565,7 @@
 				790D93F01EF8A43B00ACBB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
