@@ -10,41 +10,61 @@ import UIKit
 
 final class MessageListProvider: NSObject {
 
-    fileprivate var messages: [Message] = []
+    fileprivate var messageGroups: [String] = []
+    fileprivate var messages: [[Message]] = []
+
+    /// メッセージグループの一覧を設定する
+    ///
+    /// - Parameter groups: メッセージグループの一覧
+    func setMessageGroup(groups: [String]) {
+        self.messageGroups = groups
+    }
 
     /// メッセージの一覧を設定する
     ///
     /// - Parameter messages: メッセージ一覧
     func setMessages(messages: [Message]) {
-        self.messages = messages
+        self.messages.append(messages)
     }
 
     /// 該当のメッセージを取得する
     ///
     /// - Parameter index: TableViewのインデックス
     /// - Returns: メッセージ
-    func message(index: Int) -> Message {
+    func message(section: Int, index: Int) -> Message {
 
-        guard index < messages.count else {
+        guard section < messageGroups.count else {
+            fatalError("sectionsの要素数を超えました。")
+        }
+
+        guard index < messages[section].count else {
             fatalError("messagesの要素数を超えました。")
         }
-        return messages[index]
+        return messages[section][index]
     }
 
     /// メッセージの数を取得する
     ///
     /// - Returns: メッセージ数
-    func count() -> Int {
-        return messages.count
+    func count(section: Int) -> Int {
+        return messages[section].count
     }
 }
 
 //MARK : - UITableViewDataSource
 extension MessageListProvider: UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return messageGroups.count
+    }
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return messages[section].count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return messageGroups[section]
     }
 
     func tableView(_ tableView: UITableView,
@@ -53,7 +73,7 @@ extension MessageListProvider: UITableViewDataSource {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: MessageListTableViewCell.identifier,
                                  for: indexPath) as? MessageListTableViewCell
-        cell?.item = message(index: indexPath.row)
+        cell?.item = message(section: indexPath.section, index: indexPath.row)
         return cell!
     }
 }

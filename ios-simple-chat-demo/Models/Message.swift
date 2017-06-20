@@ -13,7 +13,7 @@ final class Message: Object {
 
     dynamic var messageID = 0
     dynamic var message = ""
-    dynamic var postDate: Date?
+    dynamic var postDate = Date().now()
 
     override static func primaryKey() -> String? {
         return "messageID"

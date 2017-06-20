@@ -22,20 +22,55 @@ final class MessageDao {
         let message = Message()
         message.messageID = MessageDao.dao.newId()!
         message.message = model.message
-        message.postDate = Date().now()
         MessageDao.dao.add(d: message)
     }
 
     /// メッセージ名で検索する
     ///
     /// - Parameter message: メッセージ
-    /// - Returns: 一致したメッセージ一覧
+    /// - Returns: メッセージ一覧
     static func findByMessage(message: String) -> [Message] {
 
-        let result = MessageDao.dao
+        let results = MessageDao.dao
             .findAll()
             .filter("message CONTAINS %@", message)
-        return result.map { Message(value: $0) }
+        return results.map { Message(value: $0) }
+    }
+
+    /// 投稿日で検索する
+    ///
+    /// - Parameter date: 日付
+    /// - Returns: メッセージ一覧
+    static func findByPostDate(date: String) -> [Message] {
+
+        let fromDate = "\(date) 00:00:00".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
+        let toDate = "\(date) 23:59:59".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
+
+        let results = MessageDao.dao
+            .findAll()
+            .filter("postDate >= %@ AND postDate <= %@", fromDate, toDate)
+        return results.map { Message(value: $0) }
+    }
+
+    /// 投稿日ごとに集計する
+    ///
+    /// - Returns: メッセージ一覧
+    static func groupByPostDate() -> [String] {
+
+        let messages = MessageDao.dao.findAll()
+        var results: [String] = []
+
+        for message in messages {
+
+            let postDate = message.postDate
+                .description.components(separatedBy: " ").first
+
+            if (results.filter { $0 == postDate }.count > 0) {
+                continue
+            }
+            results.append(postDate!)
+        }
+        return results
     }
 
     /// メッセージ一覧を取得する（降順）
