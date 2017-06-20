@@ -127,9 +127,9 @@
 		790D93F11EF8A67600ACBB67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */,
 				790D93F41EF8A71000ACBB67 /* Message.swift */,
 				79E8A7A71EF8A87E00FABA3A /* MessageDao.swift */,
+				790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +140,7 @@
 				79E8A7AA1EF8ABDD00FABA3A /* MessageDaoTests.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7AF6015BB89B7E04A13DEABA /* Pods */ = {
