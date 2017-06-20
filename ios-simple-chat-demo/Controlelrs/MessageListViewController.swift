@@ -31,7 +31,7 @@ final class MessageListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadMessageList()
+        reloadMessages()
         addKeyboardShowHideEvent()
     }
 
@@ -47,22 +47,23 @@ final class MessageListViewController: UIViewController {
         message.message = inputTextView.text
         MessageDao.add(model: message)
 
-        reloadMessageList()
+        reloadMessages()
         setupTextView()
     }
     
     private func setup() {
 
-        messageTableView.estimatedRowHeight = 66
+        messageTableView.estimatedRowHeight = 88
         messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.dataSource = dataSource
+        messageTableView.contentInset.bottom = 44
 
         inputTextView.delegate = self
         sendButton.isEnabled = false
     }
 
     /// メッセージ一覧の表示
-    private func reloadMessageList() {
+    private func reloadMessages() {
 
         let groups = MessageDao.groupByPostDate()
         dataSource.setMessageGroup(groups: groups)
@@ -73,7 +74,10 @@ final class MessageListViewController: UIViewController {
             dataSource.setMessages(index: i, messages: messages)
         }
         messageTableView.reloadData()
-        messageTableView.scrollToBottom()
+
+        DispatchQueue.main.async {
+            self.messageTableView.scrollToBottom(animated: false)
+        }
     }
 
     /// キーボードが表示されたときの処理
