@@ -10,43 +10,37 @@ import UIKit
 
 final class MessageListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var messageTextView: UITextView!
+    //MARK: - IBOutlet
+    @IBOutlet weak var messageTextView: UITextView!    
     @IBOutlet weak var dateLabel: UILabel!
+    
+    //MARK: - Properties
+    let marginMessageTextView: CGFloat = 10
 
     static var identifier: String {
         return String(describing: self)
     }
 
-    /// メッセージ
     var item: Message? {
 
         didSet {
 
             messageTextView.text = item?.message
-            messageTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10)
-            messageTextView.sizeToFit()
-
-            if let date = item?.postDate {
-                dateLabel.text = dateStyle(date: date)
-            }
+            dateLabel.text = item?.postData
         }
     }
-
-    /// 日付のフォーマット
-    ///
-    /// - Parameter date: 日付
-    /// - Returns: HH : MM
-    func dateStyle(date: Date) -> String {
-
-        let calendar = Calendar.current
-        let components = calendar
-            .dateComponents([.year, .month, .day, .hour, .minute],
-                            from: date)
-
-        if let hour = components.hour,
-        let minite = components.minute {
-            return String(format: "%02d:%02d",hour, minite)
-        }
-        return ""
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    private func setup() {
+        
+        messageTextView.textContainerInset =
+            UIEdgeInsetsMake(marginMessageTextView,
+                             marginMessageTextView,
+                             marginMessageTextView,
+                             marginMessageTextView)
+        messageTextView.sizeToFit()
     }
 }

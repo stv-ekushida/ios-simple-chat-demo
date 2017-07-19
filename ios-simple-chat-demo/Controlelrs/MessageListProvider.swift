@@ -10,8 +10,8 @@ import UIKit
 
 final class MessageListProvider: NSObject {
 
-    fileprivate var messageGroups: [String] = []
-    fileprivate var messages: [[Message]] = []
+    fileprivate var messageGroups = [String]()
+    fileprivate var messages = [[Message]]()
 
     /// メッセージグループの一覧を設定する
     ///
@@ -25,15 +25,10 @@ final class MessageListProvider: NSObject {
     /// - Parameters:
     ///   - index: メッセージグループのインデックス
     ///   - messages: メッセージ一覧
-    func setMessages(index: Int, messages: [Message]) {
-
-        if self.messages.count - 1  < index {
-            self.messages.append(messages)
-        } else {
-            self.messages[index] = messages
-        }
+    func setMessages(messages: [[Message]]) {
+        self.messages = messages
     }
-
+        
     /// 該当のメッセージを取得する
     ///
     /// - Parameter index: TableViewのインデックス
@@ -55,7 +50,8 @@ extension MessageListProvider: UITableViewDataSource {
         return messages[section].count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
         return messageGroups[section]
     }
 

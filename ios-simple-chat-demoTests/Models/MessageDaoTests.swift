@@ -91,17 +91,17 @@ class MessageDaoTests: XCTestCase {
 
         let message1 = Message()
         message1.message = "あいうえお"
-        message1.postDate = string2Date(dateString: "2017/10/10 10:10:10")
+        message1.updated = string2Date(dateString: "2017/10/10 10:10:10")
         MessageDao.add(model: message1)
 
         let message2 = Message()
         message2.message = "かきくけこ"
-        message2.postDate = string2Date(dateString: "2017/10/09 10:10:10")
+        message2.updated = string2Date(dateString: "2017/10/09 10:10:10")
         MessageDao.add(model: message2)
 
         let message3 = Message()
         message3.message = "うえだしんや"
-        message3.postDate = string2Date(dateString: "2017/10/10 10:10:10")
+        message3.updated = string2Date(dateString: "2017/10/10 10:10:10")
         MessageDao.add(model: message3)
 
         let messages = MessageDao.groupByPostDate()
@@ -117,17 +117,17 @@ class MessageDaoTests: XCTestCase {
 
         let message1 = Message()
         message1.message = "あいうえお"
-        message1.postDate = string2Date(dateString: "2017/10/10 10:10:10")
+        message1.updated = string2Date(dateString: "2017/10/10 10:10:10")
         MessageDao.add(model: message1)
 
         let message2 = Message()
         message2.message = "かきくけこ"
-        message2.postDate = string2Date(dateString: "2017/10/09 10:10:10")
+        message2.updated = string2Date(dateString: "2017/10/09 10:10:10")
         MessageDao.add(model: message2)
 
         let message3 = Message()
         message3.message = "うえだしんや"
-        message3.postDate = string2Date(dateString: "2017/10/10 10:10:10")
+        message3.updated = string2Date(dateString: "2017/10/10 10:10:10")
         MessageDao.add(model: message3)
 
         let messages = MessageDao.findByPostDate(date: "2017/10/10")

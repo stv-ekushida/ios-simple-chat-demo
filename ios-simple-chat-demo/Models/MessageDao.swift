@@ -16,41 +16,28 @@ final class MessageDao {
 
     /// メッセージを追加する
     ///
-    /// - Parameter model: メッセージ
-    static func add(model: Message) {
-
-        let message = Message()
-        message.messageID = MessageDao.dao.newId()!
-        message.message = model.message
-        message.postDate = model.postDate
-        MessageDao.dao.add(d: message)
-    }
-
-    /// メッセージ名で検索する
-    ///
     /// - Parameter message: メッセージ
-    /// - Returns: メッセージ一覧
-    static func findByMessage(message: String) -> [Message] {
+    static func add(_ message: String) {
 
-        let results = MessageDao.dao
-            .findAll()
-            .filter("message CONTAINS %@", message)
-        return results.map { Message(value: $0) }
+        let object = Message()
+        object.messageID = dao.newId()!
+        object.message = message
+        object.updated = Date().now()
+        dao.add(d: object)
     }
 
     /// 投稿日で検索する
     ///
     /// - Parameter date: 日付
     /// - Returns: メッセージ一覧
-    static func findByPostDate(date: String) -> [Message] {
+    static func findByPostDate(_ date: String) -> [Message] {
 
         let fromDate = "\(date) 00:00:00".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
         let toDate = "\(date) 23:59:59".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
 
-        let results = MessageDao.dao
-            .findAll()
-            .filter("postDate >= %@ AND postDate <= %@", fromDate, toDate)
-        return results.map { Message(value: $0) }
+        return dao.findAll()
+            .filter("updated >= %@ AND updated <= %@", fromDate, toDate)
+            .map { Message(value: $0) }
     }
 
     /// 投稿日ごとに集計する
@@ -59,17 +46,19 @@ final class MessageDao {
     static func groupByPostDate() -> [String] {
 
         let messages = MessageDao.dao.findAll()
-        var results: [String] = []
+        var results = [String]()
 
         for message in messages {
 
-            let postDate = message.postDate
-                .description.components(separatedBy: " ").first
+            guard let postDate = message.updated
+                .description.components(separatedBy: " ").first else {
+                    continue
+            }
 
             if (results.filter { $0 == postDate }.count > 0) {
                 continue
             }
-            results.append(postDate!)
+            results.append(postDate)
         }
         return results
     }
@@ -78,10 +67,9 @@ final class MessageDao {
     ///
     /// - Returns: メッセージ一覧
     static func findAll() -> [Message] {
-        let result = MessageDao.dao
-            .findAll()
-            .sorted(byKeyPath: "postDate", ascending: true)
-        return result.map { Message(value: $0) }
+        return dao.findAll()
+            .sorted(byKeyPath: "updated", ascending: true)
+            .map { Message(value: $0) }
     }
 
     /// メッセージをすべて削除する

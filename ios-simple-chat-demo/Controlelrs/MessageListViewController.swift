@@ -15,14 +15,23 @@ private extension Selector {
 
 final class MessageListViewController: UIViewController {
 
+    //MARK:- Properties
+    private let dataSource = MessageListProvider()
+    private var isObserving = false
+
+    //MARK:- IBOutlet
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var constraintTextViewHeight: NSLayoutConstraint!
-
-    private let dataSource = MessageListProvider()
-    private var isObserving = false
-
+    
+    //MARK:- IBAction
+    @IBAction func didTapSendButton(_ sender: UIButton) {
+        MessageDao.add(inputTextView.text)
+        reloadMessages()
+        setupTextView()
+    }
+    
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +49,8 @@ final class MessageListViewController: UIViewController {
         removeKeyboardShowHideEvent()
     }
 
-    //MARK:- Actions
-    @IBAction func didTapSendButton(_ sender: UIButton) {
-
-        let message = Message()
-        message.message = inputTextView.text
-        MessageDao.add(model: message)
-
-        reloadMessages()
-        setupTextView()
-    }
-
+    //MARK:- Private Methods
     private func setup() {
-
         messageTableView.estimatedRowHeight = 88
         messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.dataSource = dataSource
@@ -66,35 +64,32 @@ final class MessageListViewController: UIViewController {
     private func reloadMessages() {
 
         let groups = MessageDao.groupByPostDate()
-        dataSource.setMessageGroup(groups: groups)
 
-        for (i,group) in groups.enumerated() {
-
-            let messages = MessageDao.findByPostDate(date: group)
-            dataSource.setMessages(index: i, messages: messages)
+        let messages = groups.map {        
+            MessageDao.findByPostDate($0)
         }
+
+        dataSource.setMessageGroup(groups: groups)
+        dataSource.setMessages(messages: messages)
+        
         messageTableView.reloadData()
         scrollToNewMessage()
     }
 
     /// 最新のメッセージまで移動する
-    func scrollToNewMessage() {
+    private func scrollToNewMessage() {
 
         DispatchQueue.main.async { [weak self] _ in
 
-            guard let section = self?.messageTableView.numberOfSections  else {
-                return
-            }
-
-            if section <= 0 {
+            guard let section = self?.messageTableView.numberOfSections, section > 0 else {
                 return
             }
 
             guard let row = self?.messageTableView
-                .numberOfRows(inSection: section - 1) else {
+                .numberOfRows(inSection: section - 1) , row > 0 else {
                 return
             }
-
+            
             let indexPath = IndexPath(row: row - 1 , section: section - 1)
 
             self?.messageTableView.scrollToRow(at: indexPath,
@@ -194,7 +189,7 @@ extension MessageListViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
 
         /// 高さの上限
-        let maxHeight = CGFloat(100.0)
+        let maxHeight: CGFloat = 100.0
 
         sendButton.isEnabled = textView.text.characters.count > 0
 

@@ -13,6 +13,7 @@
 		790D93DC1EF8A43B00ACBB67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790D93DA1EF8A43B00ACBB67 /* LaunchScreen.storyboard */; };
 		790D93F31EF8A68A00ACBB67 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */; };
 		790D93F51EF8A71000ACBB67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D93F41EF8A71000ACBB67 /* Message.swift */; };
+		7989C9FE1F119A0400E7D37E /* Date+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7989C9FD1F119A0400E7D37E /* Date+DateFormat.swift */; };
 		79E8A7A81EF8A87E00FABA3A /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7A71EF8A87E00FABA3A /* MessageDao.swift */; };
 		79E8A7AB1EF8ABDD00FABA3A /* MessageDaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7AA1EF8ABDD00FABA3A /* MessageDaoTests.swift */; };
 		79E8A7AE1EF8B1B100FABA3A /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8A7AD1EF8B1B100FABA3A /* MessageListViewController.swift */; };
@@ -46,6 +47,7 @@
 		790D93E81EF8A43B00ACBB67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		790D93F21EF8A68A00ACBB67 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		790D93F41EF8A71000ACBB67 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7989C9FD1F119A0400E7D37E /* Date+DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+DateFormat.swift"; sourceTree = "<group>"; };
 		79E8A7A71EF8A87E00FABA3A /* MessageDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
 		79E8A7AA1EF8ABDD00FABA3A /* MessageDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDaoTests.swift; sourceTree = "<group>"; };
 		79E8A7AD1EF8B1B100FABA3A /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8A7E81EF8E80500FABA3A /* String+DateFormat.swift */,
+				7989C9FD1F119A0400E7D37E /* Date+DateFormat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				79E8A7A81EF8A87E00FABA3A /* MessageDao.swift in Sources */,
 				79E8A7E91EF8E80500FABA3A /* String+DateFormat.swift in Sources */,
 				790D93F31EF8A68A00ACBB67 /* RealmDaoHelper.swift in Sources */,
+				7989C9FE1F119A0400E7D37E /* Date+DateFormat.swift in Sources */,
 				79E8A7B51EF8B33E00FABA3A /* MessageListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
