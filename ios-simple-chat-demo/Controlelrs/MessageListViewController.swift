@@ -27,7 +27,7 @@ final class MessageListViewController: UIViewController {
     
     //MARK:- IBAction
     @IBAction func didTapSendButton(_ sender: UIButton) {
-        MessageDao.add(inputTextView.text)
+        MessageDao.add(message: inputTextView.text)
         reloadMessages()
         setupTextView()
     }
@@ -66,7 +66,7 @@ final class MessageListViewController: UIViewController {
         let groups = MessageDao.groupByPostDate()
 
         let messages = groups.map {        
-            MessageDao.findByPostDate($0)
+            MessageDao.findByPostDate(date: $0)
         }
 
         dataSource.setMessageGroup(groups: groups)

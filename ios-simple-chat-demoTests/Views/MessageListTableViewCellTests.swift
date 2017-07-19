@@ -46,7 +46,7 @@ class MessageListTableViewCellTests: XCTestCase {
 
         let message = Message()
         message.message = "あいうえおかきくけこ"
-        message.postDate = string2Date(dateString: "2015/10/10 10:10:10")
+        message.updated = string2Date(dateString: "2015/10/10 10:10:10")
         cell.item = message
 
         XCTAssertEqual(cell.messageTextView.text, "あいうえおかきくけこ")

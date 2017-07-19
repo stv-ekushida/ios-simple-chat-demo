@@ -17,12 +17,12 @@ final class MessageDao {
     /// メッセージを追加する
     ///
     /// - Parameter message: メッセージ
-    static func add(_ message: String) {
+    static func add(message: String, updated: Date? = nil) {
 
         let object = Message()
         object.messageID = dao.newId()!
         object.message = message
-        object.updated = Date().now()
+        object.updated = updated == nil ? Date().now() : updated!
         dao.add(d: object)
     }
 
@@ -30,7 +30,7 @@ final class MessageDao {
     ///
     /// - Parameter date: 日付
     /// - Returns: メッセージ一覧
-    static func findByPostDate(_ date: String) -> [Message] {
+    static func findByPostDate(date: String) -> [Message] {
 
         let fromDate = "\(date) 00:00:00".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
         let toDate = "\(date) 23:59:59".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
