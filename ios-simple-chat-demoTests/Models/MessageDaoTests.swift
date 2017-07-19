@@ -61,7 +61,7 @@ class MessageDaoTests: XCTestCase {
         MessageDao.add(message: "かきくけこ", updated: string2Date(dateString: "2017/10/09 10:10:10"))
         MessageDao.add(message: "うえだしんや", updated: string2Date(dateString: "2017/10/10 10:10:10"))
 
-        let messages = MessageDao.findByPostDate(date: "2017/10/10")
+        let messages = MessageDao.findBy(postDate: "2017/10/10")
 
         XCTAssertTrue(messages.count == 2)
         XCTAssertEqual("あいうえお", messages.first?.message)

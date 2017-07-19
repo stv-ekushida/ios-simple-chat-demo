@@ -66,7 +66,7 @@ final class MessageListViewController: UIViewController {
         let groups = MessageDao.groupByPostDate()
 
         let messages = groups.map {        
-            MessageDao.findByPostDate(date: $0)
+            MessageDao.findBy(postDate: $0)
         }
 
         dataSource.setMessageGroup(groups: groups)

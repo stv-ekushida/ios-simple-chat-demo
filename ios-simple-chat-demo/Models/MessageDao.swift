@@ -16,7 +16,9 @@ final class MessageDao {
 
     /// メッセージを追加する
     ///
-    /// - Parameter message: メッセージ
+    /// - Parameters:
+    ///   - message: メッセージ
+    ///   - updated: 登録日
     static func add(message: String, updated: Date? = nil) {
 
         let object = Message()
@@ -28,12 +30,12 @@ final class MessageDao {
 
     /// 投稿日で検索する
     ///
-    /// - Parameter date: 日付
+    /// - Parameter postDate: 日付
     /// - Returns: メッセージ一覧
-    static func findByPostDate(date: String) -> [Message] {
+    static func findBy(postDate: String) -> [Message] {
 
-        let fromDate = "\(date) 00:00:00".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
-        let toDate = "\(date) 23:59:59".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
+        let fromDate = "\(postDate) 00:00:00".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
+        let toDate = "\(postDate) 23:59:59".toDateStyleMedium(dateFormat: "yyyy-MM-dd HH:mm:ss")
 
         return dao.findAll()
             .filter("updated >= %@ AND updated <= %@", fromDate, toDate)
