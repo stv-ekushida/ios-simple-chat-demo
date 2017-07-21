@@ -7,7 +7,7 @@ end
 
 desc 'Realm Browserを開く'
 task :realm do
-  sh 'open ' "$(find ~/Library/Developer/CoreSimulator/Devices/$(ls -t1 ~/Library/Developer/CoreSimulator/Devices/ | head -1)/data/Containers/Data/Application/ -name \*.realm)"
+  sh "open $(find ~/Library/Developer/CoreSimulator/Devices/$(ls -t1 ~/Library/Developer/CoreSimulator/Devices/ | head -1)/data/Containers/Data/Application/ -name \*.realm)"
 end
 
 desc 'synxでディレクトリを整理する'
@@ -15,14 +15,7 @@ task :synx do
   sh 'synx', "#{PROJECT_NAME}.xcodeproj"
 end
 
-desc 'ライブラリ＆プロジェクトのクリーンビルド&オープン'
-task :setup do
-  sh "pod update"
-  sh "rake clean"
-  sh "rake open "
-end
-
-desc 'プロジェクトをクリーンビルド＆オープン'
+desc 'プロジェクトをクリーンビルド'
 task :clean do
   sh "xcodebuild -target #{PROJECT_NAME} clean"
 end
@@ -32,3 +25,9 @@ task :carthage do
   sh "carthage update --platform iOS"
 end
 
+desc 'Cocoa Pods Update ＆プロジェクトのクリーンビルド&オープン'
+task :setup do
+  sh "pod update"
+  sh "rake clean"
+  sh "rake open "
+end
