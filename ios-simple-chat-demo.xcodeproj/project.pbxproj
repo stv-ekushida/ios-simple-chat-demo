@@ -116,10 +116,10 @@
 			children = (
 				79E8A7AC1EF8B19A00FABA3A /* Controlelrs */,
 				79E8A7E51EF8C30200FABA3A /* Extensions */,
-				790D93DD1EF8A43B00ACBB67 /* Info.plist */,
 				790D93F11EF8A67600ACBB67 /* Models */,
 				79E8A7EA1EF90F4200FABA3A /* Others */,
 				79E8A7B31EF8B33500FABA3A /* Views */,
+				790D93DD1EF8A43B00ACBB67 /* Info.plist */,
 			);
 			path = "ios-simple-chat-demo";
 			sourceTree = "<group>";
@@ -181,8 +181,8 @@
 		79E8A7E51EF8C30200FABA3A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				79E8A7E81EF8E80500FABA3A /* String+DateFormat.swift */,
 				7989C9FD1F119A0400E7D37E /* Date+DateFormat.swift */,
+				79E8A7E81EF8E80500FABA3A /* String+DateFormat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +195,7 @@
 				790D93DA1EF8A43B00ACBB67 /* LaunchScreen.storyboard */,
 			);
 			name = Others;
+			path = Others;
 			sourceTree = "<group>";
 		};
 		7AF6015BB89B7E04A13DEABA /* Pods */ = {
