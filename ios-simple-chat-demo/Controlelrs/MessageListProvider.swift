@@ -16,8 +16,8 @@ final class MessageListProvider: NSObject {
     /// メッセージグループの一覧を設定する
     ///
     /// - Parameter groups: メッセージグループの一覧
-    func setMessageGroup(groups: [String]) {
-        self.messageGroups = groups
+    func set(messageGroups: [String]) {
+        self.messageGroups = messageGroups
     }
 
     /// メッセージの一覧を設定する
@@ -25,7 +25,7 @@ final class MessageListProvider: NSObject {
     /// - Parameters:
     ///   - index: メッセージグループのインデックス
     ///   - messages: メッセージ一覧
-    func setMessages(messages: [[Message]]) {
+    func set(messages: [[Message]]) {
         self.messages = messages
     }
         

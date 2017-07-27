@@ -18,6 +18,11 @@ final class MessageListViewController: UIViewController {
     //MARK:- Properties
     private let dataSource = MessageListProvider()
     private var isObserving = false
+    fileprivate struct Const {
+
+        /// 高さの上限
+        static let maxHeight: CGFloat = 100.0
+    }
 
     //MARK:- IBOutlet
     @IBOutlet weak var messageTableView: UITableView!
@@ -69,8 +74,8 @@ final class MessageListViewController: UIViewController {
             MessageDao.findBy(postDate: $0)
         }
 
-        dataSource.setMessageGroup(groups: groups)
-        dataSource.setMessages(messages: messages)
+        dataSource.set(messageGroups: groups)
+        dataSource.set(messages: messages)
         
         messageTableView.reloadData()
         scrollToNewMessage()
@@ -188,12 +193,9 @@ extension MessageListViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
 
-        /// 高さの上限
-        let maxHeight: CGFloat = 100.0
-
         sendButton.isEnabled = textView.text.characters.count > 0
 
-        if inputTextView.frame.size.height < maxHeight {
+        if inputTextView.frame.size.height < Const.maxHeight {
 
             let size = textView.sizeThatFits(inputTextView.frame.size)
             constraintTextViewHeight.constant = size.height
