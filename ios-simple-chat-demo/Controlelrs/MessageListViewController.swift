@@ -17,7 +17,7 @@ final class MessageListViewController: UIViewController {
 
     //MARK:- Properties
     private let dataSource = MessageListProvider()
-    private var isObserving = false
+    fileprivate var isObserving = false
     fileprivate struct Const {
 
         /// 高さの上限
@@ -102,8 +102,10 @@ final class MessageListViewController: UIViewController {
                                               animated: false)
         }
     }
+}
 
-    //MARK: - Keyboard
+//MARK: - Keyboard
+extension MessageListViewController {
 
     /// キーボードが表示されたときの処理
     ///
@@ -119,9 +121,9 @@ final class MessageListViewController: UIViewController {
 
         UIView.animate(withDuration: duration!,
                        animations: { [weak self] () in
-            let transform = CGAffineTransform(translationX: 0,
-                                              y: -(rect?.size.height)!)
-            self?.view.transform = transform
+                        let transform = CGAffineTransform(translationX: 0,
+                                                          y: -(rect?.size.height)!)
+                        self?.view.transform = transform
 
         })
     }
@@ -142,7 +144,7 @@ final class MessageListViewController: UIViewController {
     }
 
     /// 送信ボタンが押下されたあとに、キーボードを初期状態に戻す処理
-    private func setupTextView() {
+    fileprivate func setupTextView() {
 
         inputTextView.text = ""
         sendButton.isEnabled = false
@@ -152,7 +154,7 @@ final class MessageListViewController: UIViewController {
     }
 
     /// キーボードの表示/非表示をNotificationで受け取れるように登録する
-    private func addKeyboardShowHideEvent() {
+    fileprivate func addKeyboardShowHideEvent() {
 
         let notification = NotificationCenter.default
 
@@ -170,7 +172,7 @@ final class MessageListViewController: UIViewController {
     }
 
     /// addKeyboardShowHideEventで登録したイベントを解除する
-    private func removeKeyboardShowHideEvent() {
+    fileprivate func removeKeyboardShowHideEvent() {
 
         if !isObserving { return }
 
@@ -183,7 +185,7 @@ final class MessageListViewController: UIViewController {
         notification.removeObserver(self,
                                     name: Notification.Name.UIKeyboardWillHide,
                                     object: nil)
-
+        
         isObserving = false
     }
 }
