@@ -15,7 +15,9 @@ final class MessageListTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     //MARK: - Properties
-    let marginMessageTextView: CGFloat = 10
+    private struct Const {
+        static let margin: CGFloat = 10
+    }
 
     static var identifier: String {
         return String(describing: self)
@@ -24,23 +26,15 @@ final class MessageListTableViewCell: UITableViewCell {
     var item: Message? {
 
         didSet {
-
+            setup()
             messageTextView.text = item?.message
             dateLabel.text = item?.postData
         }
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     private func setup() {
-        
         messageTextView.textContainerInset =
-            UIEdgeInsetsMake(marginMessageTextView,
-                             marginMessageTextView,
-                             marginMessageTextView,
-                             marginMessageTextView)
+            UIEdgeInsetsMake(Const.margin, Const.margin, Const.margin, Const.margin)
         messageTextView.sizeToFit()
     }
 }
